@@ -1,8 +1,13 @@
 class PostsController < ApplicationController
 	def index
+		@posts = Post.all.order("created_at DESC")
 	end
 
 	def new
+	end
+
+	def show
+		@post = Post.find(params[:id])
 	end
 
 	def create
@@ -14,6 +19,6 @@ class PostsController < ApplicationController
 
 	private
 		def post_params
-			para,ms.require(:post).permit(:title, :body)
+			params.require(:post).permit(:title, :body)
 		end
 end
