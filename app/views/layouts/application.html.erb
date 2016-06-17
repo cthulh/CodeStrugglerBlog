@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Railsblog</title>
+	<title><%= @title %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application' , 'https://fonts.googleapis.com/css?family=Raleway:400,700' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,25 +9,27 @@
 </head>
 <body>
 <div id="sidebar">
-	<div id="logo">
-		<%= link_to root_path do %>
-			<%= image_tag "logo_wb.png" %>
-		<% end %>
-	</div>
 	<ul>
 		<li class="category">Website</li>
 		<li> <%=link_to "Blog", root_path %></li>
 		<li><%= link_to "About", about_path%></li>
 	</ul>
-
 	<ul>
 		<li class="category">Social</li>
-		<li><a href="https://github.com/cthulh" class="icon icon-social-github">Github</a></li>
-		<li><a href="https://twitter.com/MariusCthulhian" class="icon icon-social-github">Twitter</a></li>
-		<li><a href="https://www.instagram.com/tryglavson/" class="icon icon-social-github">Instagram</a></li>
-		<li><a href="mailto:tryglavson@hotmail.co.uk" class="icon icon-social-github">Email</a></li>
+		<li><a href="https://github.com/cthulh">Github</a></li>
+		<li><a href="https://twitter.com/MariusCthulhian">Twitter</a></li>
+		<li><a href="https://www.instagram.com/tryglavson/">Instagram</a></li>
+		<li><a href="mailto:tryglavson@hotmail.co.uk">Email</a></li>
 	</ul>
-	<p class="sign_in"><%= link_to "Admin login", new_user_session_path %></p>
+	<% if !user_signed_in? %>
+		<% if User.count==0 %>
+			<p class="sign_in"><%= link_to "Create admin", sign_up_path %></p>
+		<% else %>
+			<p class="sign_in"><%= link_to "Admin login", login_path %></p>
+		<% end %>
+	<% else %>
+		<p class="sign_in"><%= link_to "logout", logout_path %></p>
+	<% end %>
 </div>
 
 <div id="main_content">
@@ -42,7 +44,6 @@
 
 		<div class="buttons">
 			<button class="button"> <%=link_to "New Post", new_post_path %> </button>
-			<button class="button">Log Out</button>
 		</div>
 	</div>
 

@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all.order("created_at DESC")
+		@title = "Blog of a Code Struggler"
 	end
 
 	def new
@@ -11,15 +12,17 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@title = @post.title
 	end
 
 	def edit
 		@post = Post.find(params[:id])
+		@title = 'Edit a post'
 	end
 
 	def update
 		@post = Post.find(params[:id])
-
+		
 		if @post.update(params[:post].permit(:title, :body))
 			redirect_to @post
 		else
