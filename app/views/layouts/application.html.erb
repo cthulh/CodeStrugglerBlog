@@ -43,7 +43,9 @@
 		<% end %>
 
 		<div class="buttons">
-			<button class="button"> <%=link_to "New Post", new_post_path %> </button>
+			<% if user_signed_in? %>
+				<button class="button"> <%=link_to "New Post", new_post_path %> </button>
+			<% end %>
 		</div>
 	</div>
 
