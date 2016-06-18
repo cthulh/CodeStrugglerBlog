@@ -39,9 +39,13 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # ImageMagick for Paperclip
+  Paperclip.options[:command_path] = "/usr/bin/convert"
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
 
+  # Paperclip settings
   config.paperclip_defaults = {
   storage: :s3,
   s3_credentials: {
