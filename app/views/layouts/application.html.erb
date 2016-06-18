@@ -2,26 +2,14 @@
 <html>
 <head>
 	<title><%= @title %></title>
+	<meta charset="utf-8">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application' , 'https://fonts.googleapis.com/css?family=Raleway:400,700' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="sidebar">
-	<ul>
-		<li class="category">Website</li>
-		<li> <%=link_to "Blog", root_path %></li>
-		<li><%= link_to "About", about_path%></li>
-	</ul>
-	<ul>
-		<li class="category">Social</li>
-		<li><a href="https://github.com/cthulh">Github</a></li>
-		<li><a href="https://twitter.com/MariusCthulhian">Twitter</a></li>
-		<li><a href="https://www.instagram.com/tryglavson/">Instagram</a></li>
-		<li><a href="mailto:tryglavson@hotmail.co.uk">Email</a></li>
-	</ul>
-	<% if !user_signed_in? %>
+	<!-- <% if !user_signed_in? %>
 		<% if User.count==0 %>
 			<p class="sign_in"><%= link_to "Create admin", sign_up_path %></p>
 		<% else %>
@@ -30,30 +18,12 @@
 	<% else %>
 		<p class="sign_in"><%= link_to "logout", logout_path %></p>
 	<% end %>
-</div>
-
-<div id="main_content">
-	<div id="header">
-		<% if current_page?(root_path)%>
-		<p>All posts</p>
-		<% elsif current_page?(about_path)%>
-		<p>About</p>
-		<% else%>
-		<p><%= link_to "Back to all posts", root_path %></p>
-		<% end %>
-
-		<div class="buttons">
-			<% if user_signed_in? %>
-				<button class="button"> <%=link_to "New Post", new_post_path %> </button>
-			<% end %>
-		</div>
-	</div>
 
 	<% flash.each do |name, msg| %>
 		<%= content_tag(:div, msg, class:"alert") %>
-	<% end %>
+	<% end %> -->
 
 	<%= yield %>
-</div>
+
 </body>
 </html>
