@@ -2,28 +2,68 @@
 <html>
 <head>
 	<title><%= @title %></title>
-	<meta charset="utf-8">
+	<!-- Unicode -->
+	<meta charset="UTF-8">
+	<!-- Responsive vieport setting -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- Bootstrap js -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- Styles -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!-- Google fonts -->
   <%= stylesheet_link_tag 'application' , 'https://fonts.googleapis.com/css?family=Raleway:400,700' %>
+  <%= stylesheet_link_tag 'application' , 'https://fonts.googleapis.com/css?family=Varela+Round' %>
+  <!-- Font Awesome! -->
+	<script src="https://use.fontawesome.com/16f2b8cc35.js"></script>
+	<!-- Web icon -->
+	<link rel="shortcut icon" href="https://s3-eu-west-1.amazonaws.com/codestraggler/images/coding_struggler.ico" />
+  <!-- js global -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<!-- <% if !user_signed_in? %>
-		<% if User.count==0 %>
-			<p class="sign_in"><%= link_to "Create admin", sign_up_path %></p>
-		<% else %>
-			<p class="sign_in"><%= link_to "Admin login", login_path %></p>
-		<% end %>
-	<% else %>
-		<p class="sign_in"><%= link_to "logout", logout_path %></p>
-	<% end %>
-
-	<% flash.each do |name, msg| %>
-		<%= content_tag(:div, msg, class:"alert") %>
-	<% end %> -->
-
-	<%= yield %>
-
+	<div class="container-fluid">
+		<nav>
+			<div class="header clearfix">
+				<div class="logo pull-left">
+					<img src="https://s3-eu-west-1.amazonaws.com/codestraggler/images/coding_struggler.jpg">
+				</div>
+				<h1 class="pull-left">Coding<br>Struggler</h1>
+			</div>
+			<div class="nav-bar navbar-inverse clearfix">
+				<ul class="navigation">
+					<li><a>Blog</a></li>
+					<li><a>Playground</a></li>
+					<li><a>About</a></li>
+					<li><a>Contact</a></li>
+				</ul>
+				<label for="search"><span class="glyphicon glyphicon-search"></span></label>
+				<input type="search" id="search" placeholder="Ruby on Rails">
+			</div>
+		</nav>
+		<main>
+			<% flash.each do |name, msg| %>
+				<%= content_tag(:div, msg, class:"alert") %>
+			<% end %>
+			<!-- all posts sorted by date -->
+			<%= yield %>
+		</main>
+		<aside>	
+				<div class="subscribe_box">
+					<header>
+						<h2>Subscribe for updates</h2>
+					</header>
+					<div class="email_box">
+						<input type="email" id="email" placeholder="your@email.address">
+						<button class="btn btn-default">Subscribe</button>
+					</div>
+				</div>
+			</aside>
+		<footer>
+			<p class="copyright">&copy; 2016 All rightes reserved</p>
+		</footer>
+	</div>
 </body>
 </html>
