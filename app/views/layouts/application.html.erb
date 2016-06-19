@@ -34,9 +34,9 @@
 			</div>
 			<div class="nav-bar navbar-inverse clearfix">
 				<ul class="navigation">
-					<li><a>Blog</a></li>
-					<li><a>Playground</a></li>
-					<li><a>About</a></li>
+					<li><%= link_to "Blog", root_path %></li>
+					<!--<li><a>Playground</a></li> in construction-->
+					<li><%= link_to "About", about_path %></li>
 					<li><a>Contact</a></li>
 				</ul>
 				<label for="search"><span class="glyphicon glyphicon-search"></span></label>
@@ -50,17 +50,6 @@
 			<!-- all posts sorted by date -->
 			<%= yield %>
 		</main>
-		<aside>	
-				<div class="subscribe_box">
-					<header>
-						<h2>Subscribe for updates</h2>
-					</header>
-					<div class="email_box">
-						<input type="email" id="email" placeholder="your@email.address">
-						<button class="btn btn-default">Subscribe</button>
-					</div>
-				</div>
-			</aside>
 		<footer>
 			<p class="copyright">&copy; 2016 All rightes reserved</p>
 		</footer>

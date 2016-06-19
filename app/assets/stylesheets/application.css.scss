@@ -45,7 +45,7 @@ main {
 
 aside {
 	position: absolute;
-	top: 10%;
+	top: 20em;
 	right: 2%;
 	width: 18%;
 }
@@ -246,6 +246,15 @@ label[for="search"] {
 	margin-bottom: 1em;
 }
 
+.alert {
+	position: absolute;
+	top: 0;
+	left: 45%;
+	font-size: 0.8em;
+}
+
+
+/*
 @media only screen and (max-width: 1000px) {
 	main {
 		max-width: 90%
@@ -283,11 +292,5 @@ label[for="search"] {
 	.post_wrapper {
 		margin: 1em;
 	}
-}
+*/
 
-.alert {
-	position: absolute;
-	top: 0;
-	left: 45%;
-	font-size: 0.8em;
-}
