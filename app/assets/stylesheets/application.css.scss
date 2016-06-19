@@ -32,6 +32,8 @@ html, body {
 }
 
 .container-fluid {
+  height: 100%;
+  min-height:100%;
 	position: relative;
 	padding: 0;
 	margin: 0;
@@ -41,6 +43,21 @@ html, body {
 main {
 	max-width: 80%;
 	padding: 1.5em;
+	padding-bottom: 50px;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #202020;
+	padding: 1.5em 0 1.3em 8%;
+	color: white;
+}
+
+footer p {
+	text-align: center;
 }
 
 aside {
@@ -75,24 +92,6 @@ aside .subscribe_box {
 
 .subscribe_box button {
 	margin: 0 1em 1em 1em;
-}
-
-main {
-	padding-bottom: 4em;
-}
-
-footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 4em;
-	background-color: #202020;
-	padding: 1.5em 0 1.3em 8%;
-	color: white;
-}
-
-footer p {
-	text-align: center;
 }
 
 .copyright {
@@ -253,44 +252,60 @@ label[for="search"] {
 	font-size: 0.8em;
 }
 
-
-/*
 @media only screen and (max-width: 1000px) {
-	main {
-		max-width: 90%
-	}
 	.subscribe_box {
 		visibility: hidden;
+	}
+	main {
+		max-width: 100%
 	}
 }
 
 @media only screen and (max-width: 700px) {
-	body {
-		font-size: 80%;
-	}
-	.nav-bar {
-		padding: 0.7em 0 0.3em 2em;
-	}
-	main {
-		width: 100%;
-	}
 	.post_wrapper {
-		margin: 1em;
+		margin: 1em 0.5em;
+	}
+	body {
+		font-size: 95%;
+	}
+	nav h1 {
+		font-size: 3.1em;
+	}
+	.logo {
+		height: 85px;
+		width: 85px;
 	}
 }
 
 @media only screen and (max-width: 520px) {
-	.nav-bar {
-		padding: 0.7em 0 0.3em 0.5em;
-	}
-	.navbar input {
-		width: 80px;
-	}
-	main {
-		width: 100%;
-	}
 	.post_wrapper {
-		margin: 1em;
+		margin: 1em 0.5em;
 	}
-*/
+	body {
+		font-size: 85%;
+	}
+	nav h1 {
+		font-size: 3em;
+	}
+	.logo {
+		height: 75px;
+		width: 75px;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	.post_wrapper {
+		margin: 0.5em;
+	}
+	body {
+		font-size: 75%;
+	}
+	nav h1 {
+		font-size: 2em;
+	}
+	.logo {
+		height: 45px;
+		width: 45px;
+	}
+}
 
