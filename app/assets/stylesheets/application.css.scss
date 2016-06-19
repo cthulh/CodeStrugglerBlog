@@ -251,9 +251,26 @@ label[for="search"] {
 	font-size: 0.8em;
 }
 
+#profile_image {
+	width: 90%;
+	margin: 0 auto 2em auto;
+}
+
+#profile_image img {
+	height: 10em;
+	width: 10em;
+	border-radius: 50%;
+	display: block;
+	margin: 0 auto;
+}
+
+.page_wrapper {
+	padding: 2em 4em;
+}
+
 @media only screen and (max-width: 1000px) {
 	.subscribe_box {
-		visibility: hidden;
+		display: none;
 	}
 	main {
 		max-width: 100%
@@ -263,6 +280,9 @@ label[for="search"] {
 @media only screen and (max-width: 700px) {
 	.post_wrapper {
 		margin: 1em 0.5em;
+	}
+	.page_wrapper {
+		padding: 1em 2em;
 	}
 	body {
 		font-size: 95%;
@@ -279,6 +299,9 @@ label[for="search"] {
 @media only screen and (max-width: 520px) {
 	.post_wrapper {
 		margin: 1em 0.5em;
+	}
+	.page_wrapper {
+		padding: 1em 0.5em;
 	}
 	body {
 		font-size: 85%;
@@ -305,6 +328,12 @@ label[for="search"] {
 	.logo {
 		height: 45px;
 		width: 45px;
+	}
+	label[for="search"] {
+		display: none;
+	}
+	input[type="search"] {
+
 	}
 }
 
