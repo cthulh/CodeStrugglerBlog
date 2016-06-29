@@ -4,17 +4,17 @@
   <%= devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :name, class: "form-control" %><br>
+    <%= f.label :name %><br>
     <%= f.text_field :name, autofocus: true, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :email, class: "form-control"  %><br>
+    <%= f.label :email %><br>
     <%= f.email_field :email, class: "form-control"  %>
   </div>
 
   <div class="form-group">
-    <%= f.label :password, class: "form-control"  %><br>
+    <%= f.label :password %><br>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -22,12 +22,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation, class: "form-control"  %><br>
+    <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control"  %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.button "Sign Up", type: "submit", class: "btn btn-default"%>
   </div>
 <% end %>
 

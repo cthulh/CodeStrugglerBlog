@@ -6,7 +6,7 @@
 			<h2>Email: <%= user.email %></h2>
 			<h2>Role: <%= user.role %></h2>
 		</div>
-		<div>
+		<div class="actions">
 		<%= link_to "Update", edit_user_path(user.id) %>
 		<%= link_to "Delete", user_path(user.id), method: :delete %>
 		</div>

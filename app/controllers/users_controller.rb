@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate!
-  before_filter :authorize_admin, only: [:create, :index]
+  before_filter :authorize_admin
 
   def create
     @user = User.create(user_params)
