@@ -1,7 +1,13 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!, only: [:edit, :new, :update, :destroy]
+	load_and_authorize_resource
 
 	def index
+		@posts = Post.all.order("created_at DESC")
+		@title = "Blog of a Coding Struggler"
+	end
+
+	def search
 		@posts = Post.all.order("created_at DESC")
 		@title = "Blog of a Coding Struggler"
 	end

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authorize_admin
+  load_and_authorize_resource
 
   def create
     @user = User.create(user_params)
