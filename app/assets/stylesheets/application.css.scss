@@ -39,10 +39,40 @@ html, body {
 	background-color: #F2F2F2;
 }
 
+h1 {
+	font-size: 3.5em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.7em;
+}
+
+h4 {
+	font-size: 1.3em;
+}
+
 main {
 	max-width: 80%;
 	padding: 1.5em;
-	padding-bottom: 50px;
+	padding-bottom: 70px;
+	margin: 0 auto;
+}
+
+.form_wrapper {
+	width: 40%;
+	padding: 2em 0;
+}
+
+.form_wrapper h2 {
+	padding: 2em 0;
+}
+
+.actions {
+	padding: 1em 0;
 }
 
 footer {
@@ -119,7 +149,6 @@ nav .header {
 }
 
 nav h1 {
-	font-size: 3.5em;
 	font-family: Helvetica, sans-serif;
 	font-weight: 900;
 	text-transform: uppercase;
@@ -231,7 +260,6 @@ label[for="search"] {
 }
 
 .post_wrapper h2 {
-	font-size: 2em;
 	font-weight: 700;
 	color: #dd4814;
 }
@@ -275,6 +303,9 @@ label[for="search"] {
 	main {
 		max-width: 100%
 	}
+	.form_wrapper {
+		width: 50%;
+	}
 }
 
 @media only screen and (max-width: 700px) {
@@ -294,6 +325,12 @@ label[for="search"] {
 		height: 85px;
 		width: 85px;
 	}
+	.form_wrapper {
+		width: 60%;
+	}
+	.form_wrapper {
+		width: 50%;
+	}
 }
 
 @media only screen and (max-width: 520px) {
@@ -312,6 +349,10 @@ label[for="search"] {
 	.logo {
 		height: 75px;
 		width: 75px;
+	}
+	.form_wrapper {
+		width: 75%;
+		padding: 1em 0;
 	}
 }
 
@@ -334,6 +375,10 @@ label[for="search"] {
 	}
 	input[type="search"] {
 
+	}
+	.form_wrapper {
+		width: 80%;
+		padding: 0.5em 0;
 	}
 }
 

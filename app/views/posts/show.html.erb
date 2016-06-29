@@ -3,7 +3,7 @@
 		<%= @post.title %>
 	</h1>
 	<p class="date">
-		Submitted <%= time_ago_in_words(@post.created_at) %> Ago
+		<i>Submitted <%= time_ago_in_words(@post.created_at) %> Ago</i>
 		 
 		<% if can? :update, @post %>
 			| <%= link_to 'Edit', edit_post_path(@post) %>
