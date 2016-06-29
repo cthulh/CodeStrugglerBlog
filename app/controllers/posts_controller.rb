@@ -3,13 +3,17 @@ class PostsController < ApplicationController
 	load_and_authorize_resource
 
 	def index
-		@posts = Post.all.order("created_at DESC")
 		@title = "Blog of a Coding Struggler"
-	end
-
-	def search
+		if params[:q]
+			search_term = params[:q]
+			if Rails.env.development?
+				@posts = Post.has_tag(search_term)
+			elsif Rails.env.production?
+				@posts = Post.has_tag(search_term)
+			end
+		else
 		@posts = Post.all.order("created_at DESC")
-		@title = "Blog of a Coding Struggler"
+		end
 	end
 
 	def new

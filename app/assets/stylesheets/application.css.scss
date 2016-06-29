@@ -68,11 +68,16 @@ main {
 }
 
 .form_wrapper h2 {
-	padding: 2em 0;
+	padding: 1em 0;
 }
 
 .actions {
 	padding: 1em 0;
+	font-size: 0.7em;
+}
+
+.actions .btn {
+	padding: 0.4em;
 }
 
 footer {
@@ -197,7 +202,7 @@ nav h1 {
 	float: left;
 }
 
-input[type="search"] {
+.search {
 	background: transparent;
 	outline: none;
 	border: none;
@@ -208,10 +213,14 @@ input[type="search"] {
 	padding: 0;
 }
 
-label[for="search"] {
-	padding: 0.3em;
+input[type="search"] {
 	padding-left: 1.5em;
 	border-left: solid 2px #ab2905;
+}
+
+.add_post {
+	position: absolute;
+	left: 2em;
 }
 
 #responsive-menu span {
@@ -223,10 +232,10 @@ label[for="search"] {
 }
 
 .post_wrapper {
-	margin-right: 8em;
+	margin-right: 10em;
 	margin-top: 2em;
 	border-bottom: solid grey 1px;
-	padding-bottom: 2em;
+	padding: 0 1em 2em 1em;
 }
 
 .post_wrapper a {
@@ -417,12 +426,15 @@ label[for="search"] {
 		height: 45px;
 		width: 45px;
 	}
-	label[for="search"] {
+
+	button.search {
 		display: none;
 	}
-	input[type="search"] {
 
+	input[type="search"] {
+		width: 6em;
 	}
+	
 	.form_wrapper {
 		width: 80%;
 		padding: 0.5em 0;
