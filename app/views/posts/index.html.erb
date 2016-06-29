@@ -11,10 +11,12 @@
 		</div>
 		<div class="post_info">
 			<p class="when_posted"><%= post.created_at.strftime("%B, %d, %Y")%></p>
-			<p class="tags">Tags: <span class="label label-default">HTML5</span> <span class="label label-default">CSS3</span> <span class="label label-default">Ruby on Rails</span> <span class="label label-default">Bootstrap</span> <span class="label label-default">jQuery</span></p>
+			<p class="tags"><% post.tags.split(" ").each do |tag| %>
+				<span class="label label-default"><%= tag %></span> 
+			<% end %>
 		</div>
 		<div class="post_preview">
-			<p><%= post.body.to_s[0,150]+" (...)" %></p>
+			<p><%= post.body.to_s[0,300]+" (...)" %></p>
 		</div>
 		<div class="post_footer clearfix">
 			<div class="buttons">
