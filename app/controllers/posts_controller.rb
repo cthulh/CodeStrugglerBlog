@@ -7,12 +7,12 @@ class PostsController < ApplicationController
 		if params[:q]
 			search_term = params[:q]
 			if Rails.env.development?
-				@posts = Post.has_tag(search_term)
+				@posts = Post.has_tag(search_term).page(params[:page])
 			elsif Rails.env.production?
-				@posts = Post.has_tag(search_term)
+				@posts = Post.has_tag(search_term).page(params[:page])
 			end
 		else
-		@posts = Post.all.order("created_at DESC")
+		@posts = Post.page(params[:page]).order("created_at DESC")
 		end
 	end
 

@@ -3,32 +3,39 @@
 		<%= link_to "Add Post", new_post_path, class: "btn btn-default add_post" %>
 	<% end %>
 </div>
-<% 10.times do %>
 <% @posts.each do |post| %>
 	<div class="post_wrapper">
+
 		<div class="post_title">
 			<h2><%= post.title %></h2>
 		</div>
+
 		<div class="post_info">
 			<p class="when_posted"><%= post.created_at.strftime("%B, %d, %Y")%></p>
 			<p class="tags"><% post.tags.split(" ").each do |tag| %>
 				<span class="label label-default"><%= tag %></span> 
 			<% end %>
 		</div>
+
 		<div class="post_preview">
 			<p><%= post.body.to_s[0,300]+" (...)" %></p>
 		</div>
+
 		<div class="post_footer clearfix">
+
 			<div class="buttons">
 			  <%= link_to '<button class="btn btn-default pull-left">Read More</button>'.html_safe, post %>
 			</div>
+
 			<div class="comments_count">
 				<a href="#" class="pull-right"><i class="fa fa-commenting-o" aria-hidden="true"></i><%= post.comments.count %></a>
 			</div>
+
 		</div> <!-- /post_footer -->
+
 	</div> <!-- /post_wrapper -->
 <% end %>
-<% end %>
+<%= will_paginate @posts %>
 <aside>	
 	<div class="subscribe_box">
 		<header>
