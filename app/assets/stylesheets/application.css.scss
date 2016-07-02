@@ -172,6 +172,14 @@ nav h1 {
 	padding: 0;
 }
 
+#responsive-menu span {
+	font-size: 1.5em;
+}
+
+.navbar-nav {
+	margin: 0;
+}
+
 .navigation li {
 	display: inline;
 	list-style: none;
@@ -258,14 +266,6 @@ em.current {
 	color: white;
 }
 
-#responsive-menu span {
-	font-size: 1.5em;
-}
-
-.navbar-nav {
-	margin: 0;
-}
-
 .post_wrapper {
 	width: 75%;
 	margin-top: 2em;
@@ -332,6 +332,11 @@ em.current {
 	border: solid 1px grey;
 	border-radius: 5px;
 }
+
+textarea#new_post {
+	rows: 20;
+}
+
 
 .sides-1 {
 	margin-left: 1em;
@@ -433,6 +438,10 @@ em.current {
 		left: 0.5em;
 		width: 5.5em;
 	}
+	#leave_comment {
+		width: 60%;
+		margin-bottom: 2em;
+	}
 
 }
 
@@ -456,6 +465,10 @@ em.current {
 	.form_wrapper {
 		width: 75%;
 		padding: 1em 0;
+	}
+	#leave_comment {
+		width: 75%;
+		margin-bottom: 1em;
 	}
 }
 
@@ -485,6 +498,10 @@ em.current {
 	.form_wrapper {
 		width: 80%;
 		padding: 0.5em 0;
+	}
+	#leave_comment {
+		width: 80%;
+		margin-bottom: 1em;
 	}
 }
 
