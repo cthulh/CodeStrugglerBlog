@@ -25,6 +25,13 @@
 </head>
 <body>
 	<div class="container-fluid">
+		<div class="loggedin">
+			<% if signed_in? %>
+				<p><%= link_to current_user.email, user_path(current_user.id) %> | <%= link_to "logout", logout_path %></p>
+			<% else %>
+				<p><%= link_to "login", login_path %> | <%= link_to "sing up", sign_up_authorised_path %></p> 
+			<% end %>
+		</div>
 		<nav>
 			<div class="header clearfix">
 				<div class="logo pull-left">
