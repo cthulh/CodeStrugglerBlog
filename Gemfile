@@ -43,6 +43,7 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
   gem 'better_errors'
+  gem 'rspec-rails', '~> 3.4'
 end
 
 group :development do
@@ -57,5 +58,6 @@ group :production do
 	gem 'pg'
 	gem 'rails_12factor'
 end
+
 
 
