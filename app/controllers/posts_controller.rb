@@ -2,7 +2,6 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, only: [:edit, :new, :update, :destroy]
 
 	def index
-		@title = "Blog of a Coding Struggler"
 		if params[:q]
 			search_term = params[:q]
 			unless Rails.env.test?
@@ -20,12 +19,10 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@title = @post.title
 	end
 
 	def edit
 		@post = Post.find(params[:id])
-		@title = 'Edit a post'
 		authorize! :edit, @post
 	end
 

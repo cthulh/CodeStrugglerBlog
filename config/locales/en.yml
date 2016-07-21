@@ -21,3 +21,22 @@
 
 en:
   hello: "Hello world"
+  app_name: "Code Struggler's Blog"
+  titles:
+    pages:
+      about: "About the Struggler"
+    posts:
+      edit: "Editing post:"
+      new: "New post"
+    users:
+      new: "Creating a new user"
+      edit: "Update user details -"
+      show: "User details -"
+      index: "All users"
+      login: "login"
+    registrations:
+      new: "Sign up"
+      log_in: "Login"
+    sessions: 
+        new: "Login"
+
