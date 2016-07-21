@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="post_preview">
-			<p><%= post.body.to_s[0,300]+" (...)" %></p>
+			<p><%= truncate(post.body, length: 300) %></p>
 		</div>
 
 		<div class="post_footer clearfix">
