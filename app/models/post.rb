@@ -3,5 +3,5 @@ class Post < ActiveRecord::Base
 	validates :title, presence: true, length: {minimum: 5}
 	validates :body, presence: true
 
-	scope :has_tag, -> (tag) { where("tags like ?", "%#{tag}%")}
+	scope :with_tag, -> (tag) { where("tags like ?", "%#{tag}%")}
 end
