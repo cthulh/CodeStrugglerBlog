@@ -10,10 +10,9 @@ class Ability
       can :read, [Comment, Post]
       can :update, Comment
     else
+      can :read, User, id: user.id
       can :read, [Comment, Post]
-      can [:create, :update, :destroy], Comment do |comment|
-      	comment.user_id == user_id
-      end
+      can [:create, :update, :destroy], Comment, id: user.id
     end
 
   end
