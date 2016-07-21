@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_filter :authorize_admin
-  load_and_authorize_resource
 
   def create
     @user = User.create(user_params)
@@ -10,18 +8,22 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+    authorize! :create, @user
   end
 
   def new
     @user = User.new
+    authorize! :new, @user
   end
 
   def index
     @users = User.all
+    authorize! :index, @user
   end
 
   def show
     @user = User.find(params[:id])
+    authorize! :show, @user
   end
 
   def update
@@ -32,32 +34,25 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+    authorize! :update, @user
   end
+
   def edit
     @user = User.find(params[:id])
+    authorize! :edit, @user
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @deleted_user = @user.name
-    @user.destroy
-    redirect_to users_path, alert: "Successfully deleted user: #{@deleted_user}."
+    user = User.find(params[:id])
+    deleted_user = user.name
+    user.destroy
+    redirect_to users_path, alert: "Successfully deleted user: #{deleted_user}."
+    authorize! :destroy, user
   end
 
   private
 
-  def authorize_admin
-    user = current_user
-    if User.count==0
-      return
-    else
-      return if user==nil
-      return unless !user.role=="admin"
-      redirect_to root_path, alert: 'Access denied!'
-    end
-  end
-
   def user_params
-    params.require(:user).permit(:role, :name, :email, :password, :confirmed_password)
+    params.require(:user).permit(:role, :name, :email, :password)
   end
 end

@@ -1,15 +1,12 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!, only: [:edit, :new, :update, :destroy]
-	load_and_authorize_resource
 
 	def index
 		@title = "Blog of a Coding Struggler"
 		if params[:q]
 			search_term = params[:q]
-			if Rails.env.development?
-				@posts = Post.has_tag(search_term).page(params[:page])
-			elsif Rails.env.production?
-				@posts = Post.has_tag(search_term).page(params[:page])
+			unless Rails.env.test?
+				@posts = Post.with_tag(search_term).page(params[:page])
 			end
 		else
 		@posts = Post.page(params[:page]).order("created_at DESC")
@@ -18,6 +15,7 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new
+		authorize! :new, @post
 	end
 
 	def show
@@ -28,6 +26,7 @@ class PostsController < ApplicationController
 	def edit
 		@post = Post.find(params[:id])
 		@title = 'Edit a post'
+		authorize! :edit, @post
 	end
 
 	def update
@@ -38,6 +37,7 @@ class PostsController < ApplicationController
 		else
 			render 'edit'
 		end
+		authorize! :update, @post
 	end
 
 	def create
@@ -49,13 +49,15 @@ class PostsController < ApplicationController
 		else
 			render 'new'
 		end
+		authorize! :create, @post
 	end
 
 	def destroy
-		@post = Post.find(params[:id])
-		@post.destroy
+		post = Post.find(params[:id])
+		post.destroy
 
 		redirect_to root_path
+		authorize! :destroy, post
 	end
 
 	private
